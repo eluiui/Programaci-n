@@ -1,0 +1,12 @@
+char letra = 'a';
+String cadena = "a" ;           
+int numero = 0 ,
+char letra = '0' ;
+char coma = '/'' ;
+== significa:igual
+= significa:asignacion
+varint=5 varint+=1 S.O.P(varint);
+                        (   6  )
+boolean !varboolean=true  S.O.P(varboolean)
+                               ( false    )
+

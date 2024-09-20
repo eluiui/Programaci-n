@@ -1,0 +1,18 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+
+package com.mycompany.ciculometodo;
+
+/**
+ *
+ * @author a22jesusbm
+ */
+public class Ciculometodo {
+
+    public static void main(String[] args) {
+     Circulo circulo1= new Circulo(7);
+     circulo1.agrandar();
+    }
+}

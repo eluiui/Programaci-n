@@ -1,0 +1,426 @@
+Crear aplicacion maven:
+
+1- Crear proyecto maven en NetBeans, maven Archetype, y selecionamos 
+maven-archetype-quickstart en la version 1.4, poner en el group Id "edu.badpals"
+
+2- Abrir el proyecto en Visual
+
+
+
+Crear proyecto con quarkus:
+
+1- quarkus create nombre-carpeta
+2- cd nombre-carpeta
+3- quarkus dev
+4- añadir esto a application.properties(quarkus.datasource.db-kind=h2
+quarkus.datasource.username=root
+quarkus.datasource.jdbc.url=jdbc:h2:mem:BDQuarkus;DB_CLOSE_DELAY=-1
+
+quarkus.hibernate-orm.dialect=org.hibernate.dialect.H2Dialect
+quarkus.hibernate-orm.database.generation=drop-and-create
+quarkus.hibernate-orm.sql-load-script=schema.sql)
+5- añadir estas dependcias al pom 
+	<dependencies>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-arc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.19.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>[4.13.1,)</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-agroal</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
+        </dependency>
+    </dependencies>
+
+7- cerrar terminal y hacer quarkus dev para actualizar cambios
+
+8- instalar h2Console para poder ver las tablas de la base de datos
+
+
+Crear proyecto para hacer inserciones chatgpt:
+
+1- 
+
+	<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.acme</groupId>
+    <artifactId>pruebaBD</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <properties>
+        <compiler-plugin.version>3.12.1</compiler-plugin.version>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+        <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+        <quarkus.platform.version>3.10.2</quarkus.platform.version>
+        <surefire-plugin.version>3.2.5</surefire-plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${quarkus.platform.group-id}</groupId>
+                <artifactId>${quarkus.platform.artifact-id}</artifactId>
+                <version>${quarkus.platform.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-arc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-agroal</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>${quarkus.platform.group-id}</groupId>
+                <artifactId>quarkus-maven-plugin</artifactId>
+                <version>${quarkus.platform.version}</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>dev</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler-plugin.version}</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire-plugin.version}</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                        <maven.home>${maven.home}</maven.home>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>native</id>
+            <activation>
+                <property>
+                    <name>native</name>
+                </property>
+            </activation>
+            <properties>
+                <quarkus.native.enabled>true</quarkus.native.enabled>
+            </properties>
+        </profile>
+    </profiles>
+</project>
+
+1.2 - aplicationproperties
+
+quarkus.datasource.db-kind=h2
+quarkus.datasource.username=sa
+quarkus.datasource.jdbc.url=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+
+
+quarkus.hibernate-orm.dialect=org.hibernate.dialect.H2Dialect
+quarkus.hibernate-orm.database.generation=drop-and-create
+quarkus.hibernate-orm.sql-load-script=schema.sql
+
+
+2-  Clase user 
+
+package org.acme;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+
+@Entity
+@Table(name="users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name="name")
+    private String name;
+    @Column(name="email")
+    private String email;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public Long getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getEmail() {
+        return email;
+    }
+    
+}
+
+3- clase repository en la carpeta repository
+
+package org.acme.repository;
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import jakarta.enterprise.context.ApplicationScoped;
+import org.acme.User;
+
+@ApplicationScoped
+public class UserRepository implements PanacheRepository<User> {
+}
+
+
+4- crear UserService en la carpeta service
+
+package org.service;
+import org.acme.User;
+import org.acme.repository.UserRepository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
+import jakarta.inject.Inject;
+
+@ApplicationScoped
+public class UserService {
+
+    @Inject
+    UserRepository userRepository;
+
+    @Transactional
+    public void addUser(String name, String email) {
+        User user = new User();
+        user.setName(name);
+        user.setEmail(email);
+        userRepository.persist(user);
+    }
+}
+
+5- Crear userController en carpeta controller
+
+package org.acme.controller;
+import org.acme.User;
+import org.acme.repository.UserRepository;
+
+import jakarta.inject.Inject;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
+import java.util.List;
+
+@Path("/users")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+public class UserController {
+
+     @Inject
+    UserRepository userRepository;
+
+    @GET
+    public List<User> getAllUsers() {
+        return userRepository.listAll();
+    }
+
+    @GET
+    @Path("/{id}")
+    public User getUserById(@PathParam("id") Long id) {
+        return userRepository.findById(id);
+    }
+
+    @POST
+    public void createUser(User user) {
+        userRepository.persist(user);
+    }
+
+    @PUT
+    @Path("/{id}")
+    public void updateUser(@PathParam("id") Long id, User user) {
+        User existingUser = userRepository.findById(id);
+        if (existingUser != null) {
+            existingUser.setName(user.getName());
+            existingUser.setEmail(user.getEmail());
+            userRepository.persist(existingUser);
+        }
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public void deleteUser(@PathParam("id") Long id) {
+        User existingUser = userRepository.findById(id);
+        if (existingUser != null) {
+            userRepository.delete(existingUser);
+        }
+    }
+}
+6- crear test para probarlo 
+
+package org.acme;
+
+import io.quarkus.test.junit.QuarkusTest;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Test;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.is;
+
+import org.acme.repository.UserRepository;
+
+@QuarkusTest
+public class UserResourceTest {
+
+    @Inject
+    UserRepository userRepository;
+
+    @Test
+    @Transactional
+    public void testCreateUser() {
+        // Crea un nuevo usuario
+        User user = new User();
+        user.setName("John Doe");
+        user.setEmail("john.doe@example.com");
+        userRepository.persist(user);
+
+        // Verifica que el usuario se haya creado correctamente
+        given()
+          .when().get("/users/" + user.getId())
+          .then()
+             .statusCode(200)
+             .body("name", is("John Doe"))
+             .body("email", is("john.doe@example.com"));
+    }
+}
+
+7- crear el schema.sql si no se ha creado  y el META-INF que esta en una carpeta
+
+drop table if exists users;
+create table users (
+    id bigint generated by default as identity,
+    name varchar(255) not null, 
+    email varchar(255) not null,
+    primary key (id)
+);
+
+insert into 
+    users (name, email) 
+    values 
+        ('John Doe', 'john.doe@example.com');
+
+ 	

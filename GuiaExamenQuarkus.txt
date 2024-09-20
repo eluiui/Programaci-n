@@ -1,0 +1,76 @@
+Crear aplicacion maven:
+
+1- Crear proyecto maven en NetBeans, maven Archetype, y selecionamos 
+maven-archetype-quickstart en la version 1.4, poner en el group Id "edu.badpals"
+
+2- Abrir el proyecto en Visual
+
+
+
+Crear proyecto con quarkus:
+
+1- quarkus create nombre-carpeta
+2- cd nombre-carpeta
+3- quarkus dev
+4- añadir esto a application.properties(quarkus.datasource.db-kind=h2
+quarkus.datasource.username=root
+quarkus.datasource.jdbc.url=jdbc:h2:mem:BDQuarkus;DB_CLOSE_DELAY=-1
+
+quarkus.hibernate-orm.dialect=org.hibernate.dialect.H2Dialect
+quarkus.hibernate-orm.database.generation=drop-and-create
+quarkus.hibernate-orm.sql-load-script=schema.sql)
+5- añadir estas dependcias al pom 
+	<dependencies>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-arc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.19.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>[4.13.1,)</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-agroal</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
+        </dependency>
+    </dependencies>
+
+7- cerrar terminal y hacer quarkus dev para actualizar cambios

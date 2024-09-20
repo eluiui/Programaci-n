@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE libros [
+<!ELEMENT libros (libro)+>
+<!ELEMENT libro (titulo , autores , fecha_publicacion? , lsbn)>
+<!ATTLIST libro codigo ID #REQUIRED>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT autores (autor)+>
+<!ELEMENT autor (apellido1 , apellido2?, nombre)>
+<!ELEMENT apellido1 (#PCDATA)>
+<!ELEMENT apellido2 (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT fecha_publicacion (dia , mes , año)>
+<!ELEMENT dia (#PCDATA)>
+<!ELEMENT mes (#PCDATA)>
+<!ELEMENT año (#PCDATA)>
+<!ELEMENT lsbn (#PCDATA)>
+]>
+<libros>
+  <libro codigo="A001">
+    <titulo>senpai</titulo>
+    <autores>
+      <autor>
+      <apellido1>Perez</apellido1>
+        <nombre>Diego</nombre>
+      </autor>
+      <autor>
+      <apellido1>Señorans</apellido1>
+        <nombre>Alex</nombre>
+      </autor>
+    </autores>
+    <lsbn>h</lsbn>
+  </libro>
+  <libro codigo="B002">
+    <titulo>senpai</titulo>
+    <autores>
+      <autor>
+        <apellido1>Perez</apellido1>
+        <apellido2>Clavero</apellido2>
+        <nombre>Diego</nombre>
+      </autor>
+      <autor>
+      <apellido1>Landin</apellido1>
+        <nombre>Victor</nombre>
+      </autor>
+    </autores>
+    <fecha_publicacion>
+      <dia>1</dia>
+      <mes>enero</mes>
+      <año>1997</año>
+    </fecha_publicacion>
+    <lsbn>r</lsbn>
+  </libro>
+  <libro codigo="C003">
+    <titulo>senpai</titulo>
+    <autores>
+      <autor>
+        <apellido1>Perez</apellido1>
+        <apellido2>Clavero</apellido2>
+        <nombre>Diego</nombre>
+      </autor>
+      <autor>
+      <apellido1>Landina</apellido1>
+        <nombre>Victoria</nombre>
+      </autor>
+    </autores>
+    <lsbn>j</lsbn>
+  </libro>
+</libros>
